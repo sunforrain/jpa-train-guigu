@@ -36,14 +36,15 @@ public class Customer {
 //	private Set<Order> orders = new HashSet<>();
 
     // 使用第三方数据表的方式为当前的数据表生成主键值的方式,在一些特殊的业务场景中会用到
-    @TableGenerator(name = "ID_GENERATOR",   // name 属性表示该主键生成策略的名称，它被引用在@GeneratedValue中设置的generator 值中
-            table = "JPA_ID_GENERATORS",    // table 属性表示表生成策略所持久化的表名
-            pkColumnName = "PK_NAME",        // pkColumnName 属性的值表示在持久化表中，该主键生成策略所对应键值的名称
-            pkColumnValue = "CUSTOMER_ID",   // pkColumnValue 属性的值表示在持久化表中，该生成策略所对应的主键
-            valueColumnName = "PK_VALUE",    // valueColumnName 属性的值表示在持久化表中，该主键当前所生成的值，它的值将会随着每次创建累加
-            allocationSize = 100)             // allocationSize 表示每次主键值增加的大小, 默认值为 50
-    @GeneratedValue(strategy = GenerationType.TABLE,generator = "ID_GENERATOR")
-//	@GeneratedValue(strategy=GenerationType.AUTO)
+//    @TableGenerator(name = "ID_GENERATOR",   // name 属性表示该主键生成策略的名称，它被引用在@GeneratedValue中设置的generator 值中
+////            table = "JPA_ID_GENERATORS",    // table 属性表示表生成策略所持久化的表名
+////            pkColumnName = "PK_NAME",        // pkColumnName 属性的值表示在持久化表中，该主键生成策略所对应键值的名称
+////            pkColumnValue = "CUSTOMER_ID",   // pkColumnValue 属性的值表示在持久化表中，该生成策略所对应的主键
+////            valueColumnName = "PK_VALUE",    // valueColumnName 属性的值表示在持久化表中，该主键当前所生成的值，它的值将会随着每次创建累加
+////            allocationSize = 100)             // allocationSize 表示每次主键值增加的大小, 默认值为 50
+////    @GeneratedValue(strategy = GenerationType.TABLE,generator = "ID_GENERATOR")
+
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
 	public Integer getId() {
 		return id;
