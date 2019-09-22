@@ -12,7 +12,7 @@
 	
 		<!-- 添加持久化类 -->
 		<class>com.atguigu.jpa.helloworld.Customer</class>
-		<!--<class>com.atguigu.jpa.helloworld.Order</class>-->
+		<class>com.atguigu.jpa.helloworld.Order</class>
 	<!---->
 		<!--<class>com.atguigu.jpa.helloworld.Department</class>-->
 		<!--<class>com.atguigu.jpa.helloworld.Manager</class>-->
@@ -33,7 +33,7 @@
 		<properties>
 			<!-- 连接数据库的基本信息 -->
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.31.117/jpa?useUnicod=true&amp;characterEncoding=utf-8"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.1.7/jpa?useUnicod=true&amp;characterEncoding=utf-8"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
 			<property name="javax.persistence.jdbc.password" value="123456"/>
 			
