@@ -17,8 +17,8 @@
 		<class>com.atguigu.jpa.helloworld.Department</class>
 		<class>com.atguigu.jpa.helloworld.Manager</class>
 	<!---->
-		<!--<class>com.atguigu.jpa.helloworld.Item</class>-->
-		<!--<class>com.atguigu.jpa.helloworld.Category</class>-->
+		<class>com.atguigu.jpa.helloworld.Item</class>
+		<class>com.atguigu.jpa.helloworld.Category</class>
 		
 		<!-- 
 		配置二级缓存的策略 
