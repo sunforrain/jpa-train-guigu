@@ -31,6 +31,29 @@ public class JPATest {
         entityManagerFactory.close();
     }
 
+    //查询 order 数量大于 2 的那些 Customer
+    @Test
+    public void testGroupBy(){
+        String jpql = "SELECT o.customer FROM Order o "
+                + "GROUP BY o.customer "
+                + "HAVING count(o.id) >= 2";
+        List<Customer> customers = entityManager.createQuery(jpql).getResultList();
+
+        System.out.println(customers);
+    }
+
+    @Test
+    public void testOrderBy () {
+        String jpql = "FROM Customer c WHERE c.age > ? ORDER BY c.age DESC";
+        // 在建立query时要设置QueryHints,同时配置文件中要启用查询缓存
+        Query query = entityManager.createQuery(jpql).setHint(QueryHints.HINT_CACHEABLE, true);
+        //占位符的索引是从 1 开始, 这里占位符会报错,不影响运行
+        query.setParameter(1, 1);
+
+        List<Customer> customers = query.getResultList();
+        System.out.println(customers.size());
+    }
+
     //使用 hibernate 的查询缓存.
     @Test
     public void testQueryCache () {
@@ -43,6 +66,7 @@ public class JPATest {
         List<Customer> customers = query.getResultList();
         System.out.println(customers.size());
 
+        // 第二次查询,有查询缓存的话不会再次发select
         query = entityManager.createQuery(jpql).setHint(QueryHints.HINT_CACHEABLE, true);
         query.setParameter(1, 1);
 
