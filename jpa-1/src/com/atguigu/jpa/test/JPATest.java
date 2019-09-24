@@ -31,6 +31,24 @@ public class JPATest {
         entityManagerFactory.close();
     }
 
+    /**
+     * JPQL 的关联查询同 HQL 的关联查询.
+     */
+    @Test
+    public void testLeftOuterJoinFetch(){
+        String jpql = "FROM Customer c LEFT OUTER JOIN FETCH c.orders WHERE c.id = ?";
+
+        // 有FETCH的情况下返回的是一个对象,且对象内的集合也是有的
+        Customer customer =
+                (Customer) entityManager.createQuery(jpql).setParameter(1, 8).getSingleResult();
+        System.out.println(customer.getLastName());
+        System.out.println(customer.getOrders().size());
+
+        // 语句中没有FETCH将返回的是一个数组类型的集合且order集合还没有初始化,很难处理
+//		List<Object[]> result = entityManager.createQuery(jpql).setParameter(1, 12).getResultList();
+//		System.out.println(result);
+    }
+
     //查询 order 数量大于 2 的那些 Customer
     @Test
     public void testGroupBy(){
