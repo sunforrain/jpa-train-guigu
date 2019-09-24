@@ -6,7 +6,7 @@ import java.util.Set;
 
 import javax.persistence.*;
 
-//@NamedQuery(name="testNamedQuery", query="FROM Customer c WHERE c.id = ?")
+@NamedQuery(name="testNamedQuery", query="FROM Customer c WHERE c.id = ?") // 命名查询的语句,有的IDE query里不加select会报错,但不影响运行
 @Cacheable(true) // 标志此类启用缓存
 @Table(name="JPA_CUTOMERS")
 @Entity
