@@ -31,6 +31,41 @@ public class JPATest {
         entityManagerFactory.close();
     }
 
+    //可以使用 JPQL 完成 UPDATE 和 DELETE 操作.
+    @Test
+    public void testExecuteUpdate(){
+        String jpql = "UPDATE Customer c SET c.lastName = ? WHERE c.id = ?";
+        Query query = entityManager.createQuery(jpql).setParameter(1, "YYY").setParameter(2, 12);
+
+        query.executeUpdate();
+    }
+
+    //使用 jpql 内建的函数
+    @Test
+    public void testJpqlFunction(){
+        // 字符串处理函数
+        String jpql = "SELECT lower(c.email) FROM Customer c";
+        List<String> emails = entityManager.createQuery(jpql).getResultList();
+        System.out.println(emails);
+
+        // 日期函数
+//        String jpql = "SELECT current_date() FROM Customer c";
+//        Object date = entityManager.createQuery(jpql).getSingleResult();
+//        System.out.println(date);
+    }
+
+    // JPQL 子查询
+    @Test
+    public void testSubQuery(){
+        //查询所有 Customer 的 lastName 为 YY 的 Order
+        String jpql = "SELECT o FROM Order o "
+                + "WHERE o.customer = (SELECT c FROM Customer c WHERE c.lastName = ?)";
+
+        Query query = entityManager.createQuery(jpql).setParameter(1, "YY");
+        List<Order> orders = query.getResultList();
+        System.out.println(orders.size());
+    }
+
     /**
      * JPQL 的关联查询同 HQL 的关联查询.
      */
