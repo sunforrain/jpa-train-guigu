@@ -32,6 +32,22 @@ public class JPATest {
         entityManagerFactory.close();
     }
 
+    // 测试二级缓存
+    @Test
+    public void testSecondLevelCache(){
+        Customer customer1 = entityManager.find(Customer.class, 8);
+
+        entityTransaction.commit();
+        entityManager.close();
+
+        // 不加二级缓存的情况下这里会发第二次sql
+        entityManager = entityManagerFactory.createEntityManager();
+        entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+
+        Customer customer2 = entityManager.find(Customer.class, 8);
+    }
+
     //对于关联的集合对象, 默认使用懒加载的策略.
     //使用维护关联关系的一方获取, 还是使用不维护关联关系的一方获取, SQL 语句相同.
     @Test

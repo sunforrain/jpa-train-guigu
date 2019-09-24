@@ -7,7 +7,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 //@NamedQuery(name="testNamedQuery", query="FROM Customer c WHERE c.id = ?")
-//@Cacheable(true)
+@Cacheable(true) // 标志此类启用缓存
 @Table(name="JPA_CUTOMERS")
 @Entity
 public class Customer {
@@ -103,12 +103,12 @@ public class Customer {
 	//映射单向 1-n 的关联关系
 	//使用 @OneToMany 来映射 1-n 的关联关系
 	//使用 @JoinColumn 来映射外键列的名称
-	//可以使用 @OneToMany 的 fetch 属性来修改默认的加载策略
+	//可以使用 @OneToMany 的 fetch 属性来修改默认的加载策略,使用EAGER的话会导致二级缓存对多的一端失效
 	//可以通过 @OneToMany 的 cascade 属性来修改默认的删除策略.
 	//可以通过 @OneToMany 的 mapped 属性来指定维护关系的为多的一端,mappedBy指定的是多的一端的实体类内对应的一的属性
 	//注意: 若在 1 的一端的 @OneToMany 中使用 mappedBy 属性, 则 @OneToMany 端就不能再使用 @JoinColumn 属性了. 
 //	@JoinColumn(name="CUSTOMER_ID")
-	@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.REMOVE}, mappedBy = "customer")
+	@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.REMOVE}, mappedBy = "customer")
 	public Set<Order> getOrders() {
 		return orders;
 	}
