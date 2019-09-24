@@ -1,6 +1,7 @@
 package com.atguigu.jpa.test;
 
 import com.atguigu.jpa.helloworld.*;
+import org.hibernate.ejb.QueryHints;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,6 +29,25 @@ public class JPATest {
         entityTransaction.commit();
         entityManager.close();
         entityManagerFactory.close();
+    }
+
+    //使用 hibernate 的查询缓存.
+    @Test
+    public void testQueryCache () {
+        String jpql = "FROM Customer c WHERE c.age > ?";
+        // 在建立query时要设置QueryHints,同时配置文件中要启用查询缓存
+        Query query = entityManager.createQuery(jpql).setHint(QueryHints.HINT_CACHEABLE, true);
+        //占位符的索引是从 1 开始, 这里占位符会报错,不影响运行
+        query.setParameter(1, 1);
+
+        List<Customer> customers = query.getResultList();
+        System.out.println(customers.size());
+
+        query = entityManager.createQuery(jpql).setHint(QueryHints.HINT_CACHEABLE, true);
+        query.setParameter(1, 1);
+
+        customers = query.getResultList();
+        System.out.println(customers.size());
     }
 
     //createNativeQuery 适用于本地 SQL
