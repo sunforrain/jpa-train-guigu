@@ -1,0 +1,37 @@
+spring的包:
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/com.springsource.net.sf.cglib-2.2.0.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/com.springsource.org.aopalliance-1.0.0.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/com.springsource.org.aspectj.weaver-1.6.8.RELEASE.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/commons-logging-1.1.3.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/spring-aop-4.0.0.RELEASE.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/spring-aspects-4.0.0.RELEASE.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/spring-beans-4.0.0.RELEASE.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/spring-context-4.0.0.RELEASE.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/spring-core-4.0.0.RELEASE.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/spring-expression-4.0.0.RELEASE.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/spring-jdbc-4.0.0.RELEASE.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/spring-orm-4.0.0.RELEASE.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/spring-tx-4.0.0.RELEASE.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/spring-web-4.0.0.RELEASE.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/spring-webmvc-4.0.0.RELEASE.jar!/" />
+
+hibernate的包:
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/antlr-2.7.7.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/dom4j-1.6.1.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/hibernate-commons-annotations-4.0.2.Final.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/hibernate-core-4.2.4.Final.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/javassist-3.15.0-GA.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/jboss-logging-3.1.0.GA.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/jboss-transaction-api_1.1_spec-1.0.1.Final.jar!/" />
+
+hibernate与jpa相关的包:
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/hibernate-entitymanager-4.2.4.Final.jar!/" />
+
+c3p0数据源的包:
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/c3p0-0.9.2.1.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/hibernate-c3p0-4.2.4.Final.jar!/" />
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/mchange-commons-java-0.2.3.4.jar!/" />
+
+mysql 的驱动:
+<root url="jar://D:/学习/JPA学习/jpa-2/lib/mysql-connector-java-5.1.7-bin.jar!/" />
